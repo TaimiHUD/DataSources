@@ -6,6 +6,12 @@ description = "TaimiHUD's creator's fork of Hero-Timers; has changes like better
 
 [[Timers]]
 type = "GitHub"
+owner = "kittywitch"
+repository = "Sabetha-Timers"
+description = "This edits the QuitarHero/Hero-Timers Sabetha timers to add the Commander's Markers details back into them, while retaining cardinal directions provided."
+
+[[Timers]]
+type = "GitHub"
 owner = "QuitarHero"
 repository = "Hero-Timers"
 description = "These are timers by QuitarHero created for Charr's Timer Module."
