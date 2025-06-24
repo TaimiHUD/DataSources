@@ -1,0 +1,11 @@
+[[Timers]]
+type = "GitHub"
+owner = "kittywitch"
+repository = "Hero-Timers"
+description = "TaimiHUD's creator's fork of Hero-Timers; has changes like better Sabetha. You should not use this if you are using the other version of Hero-Timers."
+
+[[Timers]]
+type = "GitHub"
+owner = "QuitarHero"
+repository = "Hero-Timers"
+description = "These are timers by QuitarHero created for Charr's Timer Module."
