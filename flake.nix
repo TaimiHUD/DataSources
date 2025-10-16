@@ -117,6 +117,7 @@
         config = ./config.nix;
         pathing = ./pathing/config.nix;
         timers = ./timers/config.nix;
+        markers = ./markers/config.nix;
         default = let
           inherit (self.datasourceModules) config;
         in _: {
@@ -124,6 +125,7 @@
             config.config
             config.pathing
             config.timers
+            config.markers
           ];
         };
       };
