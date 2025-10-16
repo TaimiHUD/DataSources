@@ -13,10 +13,12 @@
       name = "BlishHUD Commander's Markers Internal Markers";
       fileName = "Extracted.markers";
       description = "Markers that were embedded into the source code of BlishHUD's Commander's Markers.";
-      remote.direct = {
-        url = "https://raw.githubusercontent.com/TaimiHUD/DataSources/refs/heads/main/markers/Extracted.markers";
+      remote.github = {
+        owner = "TaimiHUD";
+        repo = "CommandersMarkersInternalMarkers";
+        archive.enable = true;
       };
-      versions."latest".hash = null;
+      versions."0.0.1".hash = null;
     };
   };
 }
