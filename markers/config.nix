@@ -15,7 +15,6 @@
       description = "Markers that were embedded into the source code of BlishHUD's Commander's Markers.";
       remote.direct = {
         url = "https://raw.githubusercontent.com/TaimiHUD/DataSources/refs/heads/main/markers/Extracted.markers";
-        archive.enable = true;
       };
       versions."latest".hash = null;
     };
