@@ -3,7 +3,7 @@
     blishhud-community = {
       name = "BlishHUD Community Markers";
       fileName = "Community.markers";
-      description = "These are timers by QuitarHero created for Charr's Timer Module.";
+      description = "Markers provided by the community for BlishHUD's Commander's Markers.";
       remote.direct = {
         url = "https://bhm.blishhud.com/Manlaan.CommanderMarkers/Community/Markers.json";
       };
@@ -12,7 +12,7 @@
     blishhud-cm = {
       name = "BlishHUD Commander's Markers Internal Markers";
       fileName = "Extracted.markers";
-      description = "This edits the QuitarHero/H";
+      description = "Markers that were embedded into the source code of BlishHUD's Commander's Markers.";
       remote.direct = {
         url = "https://raw.githubusercontent.com/TaimiHUD/DataSources/refs/heads/main/markers/Extracted.markers";
         archive.enable = true;
