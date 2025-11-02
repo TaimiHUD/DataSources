@@ -13,6 +13,7 @@
       name = "BlishHUD Commander's Markers Internal Markers";
       fileName = "Extracted.markers";
       description = "Markers that were embedded into the source code of BlishHUD's Commander's Markers.";
+      stock.enable = true;
       remote.github = {
         owner = "TaimiHUD";
         repo = "CommandersMarkersInternalMarkers";

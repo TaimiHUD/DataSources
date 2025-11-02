@@ -24,6 +24,7 @@
           datasources = self;
         };*/
         sourcesToml = callPackage self.lib.datasources.config.output.get.file {};
+        stockSourcesToml = callPackage self.lib.datasources.config.stock.output.get.file {};
 
         default = packages.sourcesToml;
       };
@@ -101,12 +102,14 @@
       sources = {
         datasources = ./modules/sources/datasources.nix;
         output-settings = ./modules/sources/output/settings.nix;
+        stock = ./modules/sources/output/stock.nix;
         default = let
           inherit (self.datasourceModules) sources;
         in _: {
           imports = [
             sources.datasources
             sources.output-settings
+            sources.stock
           ];
         };
       };

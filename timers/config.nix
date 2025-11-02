@@ -4,6 +4,7 @@
       name = "Hero's Timers";
       fileName = "Hero.Timer.Pack.zip";
       description = "These are timers by QuitarHero created for Charr's Timer Module.";
+      stock.enable = true;
       remote.github = {
         owner = "QuitarHero";
         repo = "Hero-Timers";

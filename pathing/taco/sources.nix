@@ -4,6 +4,7 @@
       name = "Teh's Trails - Map Completion";
       fileName = "TehsTrails.taco";
       description = "A collection of xTeh.7146's marker packs.";
+      stock.enable = true;
       remote.github = {
         owner = "xrandox";
         repo = "TehsTrails";
@@ -254,6 +255,7 @@
     tekkits-aio = {
       name = "Tekkit's All-In-One";
       fileName = "tw_ALL_IN_ONE.taco";
+      stock.enable = true;
       remote.direct = {
         #url = "https://www.tekkitsworkshop.net/download?download=1:tw-all-in-one";
         url = "https://www.tekkitsworkshop.net/downloads/tw_ALL_IN_ONE.taco";
