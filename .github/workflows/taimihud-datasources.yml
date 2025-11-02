@@ -29,6 +29,7 @@ jobs:
         attrs: nixpkgs.diffutils
         command: diff
   main:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork
     name: taimihud-datasources-main
     permissions:
       contents: write
@@ -107,6 +108,7 @@ jobs:
       with:
         files: .ci/artifacts/share/taimihud/sources.toml
   updates:
+    if: github.event_name != 'push'
     name: taimihud-datasources-updates
     runs-on: ubuntu-latest
     steps:
@@ -165,5 +167,6 @@ jobs:
         stdin: ${{ runner.temp }}/ci.build.cache
 name: taimihud-datasources
 'on':
-- push
-- pull_request
+  pull_request: {}
+  push: {}
+  workflow_dispatch: {}

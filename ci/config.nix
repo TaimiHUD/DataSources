@@ -48,8 +48,17 @@ in
     '') config.artifactPackages)));
 
     gh-actions = {
-      jobs = mkIf (config.id != "ci" && config.artifactPackage != null) {
-        ${config.id} = {
+      on = {
+        push = {};
+        pull_request = {};
+        workflow_dispatch = {};
+      };
+      jobs = {
+        updates = mkIf (config.id == "updates") {
+          "if" = "github.event_name != 'push'";
+        };
+        main = mkIf (config.id == "main" && config.artifactPackage != null) {
+          "if" = "github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork";
           permissions = {
             contents = "write";
           };
