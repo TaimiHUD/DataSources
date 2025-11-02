@@ -19,7 +19,7 @@
         repo = "CommandersMarkersInternalMarkers";
         archive.enable = true;
       };
-      versions."0.0.1".hash = null;
+      versions."v0.0.1".hash = "sha256-7ZGXXa4tJZfFtQvcGMsX6fuBLZgu0bAkOK+TihnpFwM=";
     };
   };
 }

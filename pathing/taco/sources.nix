@@ -142,6 +142,8 @@
       versions = {
         "v20.5.1".hash = "sha256-kNqfXQxYECwdrFOcY6xZbPKhuMn/22Xnmf2P3nrMuIY=";
         "v21.6".hash = null;
+        "v21.7".hash = null;
+        "v21.8".hash = null;
       };
     };
     masmer-fractal-skips = {
@@ -261,6 +263,8 @@
         url = "https://www.tekkitsworkshop.net/downloads/tw_ALL_IN_ONE.taco";
       };
       versions."2025-08-27" = {
+        #etag = "2ca49a5-63d529817d7e3";
+        #lastModified = "Wed, 27 Aug 2025 06:06:48 GMT";
         #version = "7e11b1dbef7f616cba3957b766a16578"?
         hash = "sha256-bHpKeBBIr8F4BNO2sAaaCloQ5I5N7CFNZ0o059Iba2M=";
       };
