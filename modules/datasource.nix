@@ -67,6 +67,7 @@ in {
     output.settings = {
       name = mkOptionDefault config.name;
       description = mkIf (config.description != null) (mkOptionDefault config.description);
+      homepage_url = mkIf (config.url != null) (mkOptionDefault config.url);
     };
     special.args = {
       datasourceConfig = mkOptionDefault config;

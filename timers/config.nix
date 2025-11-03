@@ -15,7 +15,8 @@
     sabetha-timers = {
       name = "Sabetha Timers";
       fileName = "Sabetha-Timers";
-      description = "This edits the QuitarHero/Hero-Timers Sabetha timers to add the Commander's Markers details back into them, while retaining cardinal directions provided.";
+      description = "This edits the Hero's Timers Sabetha timers to add the Commander's Markers details back into them, while retaining cardinal directions provided.";
+      output.settings.author = "QuitarHero, kittywitch, ???";
       remote.github = {
         owner = "kittywitch";
         repo = "Sabetha-Timers";

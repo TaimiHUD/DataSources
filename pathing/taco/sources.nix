@@ -39,15 +39,23 @@
       };
     };
     moar = {
-      name = "MOAR Marker Pack [BETA]";
+      name = "MOAR Marker Pack";
       url = "https://www.moarloot.com/markers";
       fileName = "moar.taco";
+      output.settings = {
+        author = "MOAR";
+        display_name = "MOAR Marker Pack [BETA]";
+      };
       remote.direct.url = "https://moar-loot.web.app/releases/moar.taco";
       versions."2022-09-27".hash = "sha256-cf2DpX6NxCBilKZpdWOK+UkU2k+ASknE4TcycgpZAsw=";
     };
     race-beetle-tracks = {
       name = "RACE-Beetle-Racing-Tracks";
       fileName = "RACE_BeetleTracks.taco";
+      output.settings = {
+        display_name = "Beetle Racing Tracks";
+        author = "[RACE]";
+      };
       remote.github = {
         owner = "Garfried";
         repo = "RACE-Beetle-Racing-Tracks";
@@ -58,6 +66,7 @@
     czokalapik = {
       name = "Czokalapik's Guides for GW2Taco";
       fileName = "Czokalapik-s-Guides-for-GW2Taco.taco";
+      output.settings.author = "Czokalapik";
       remote.github = {
         owner = "czokalapik";
         repo = "Czokalapik-s-Guides-for-GW2Taco";
@@ -69,6 +78,7 @@
       #name = "Emythiel's GW2 Markers";
       name = "Emythiel's HoT HP Marker Pack";
       fileName = "emysmarkers.zip";
+      output.settings.author = "Emythiel";
       remote.github = {
         owner = "Emythiel";
         repo = "gw2-blish-markers";
@@ -79,6 +89,7 @@
     floochs-friendly = {
       name = "Flooch's Friendly Collection Routes";
       fileName = "ffcr.taco";
+      output.settings.author = "Flooch";
       remote.github = {
         owner = "placeholderwastakentwice";
         repo = "flooch-friendly-collection-routes";
@@ -122,8 +133,9 @@
       versions."v3.1.12.69".hash = "sha256-QalAd/Ct94DgeWaJHlHYqwB7GOjz+JFiCNpIDGXiKws=";
     };
     japyx-trails = {
-      name = "JapyxTrails";
+      name = "Japyx's Trails";
       fileName = "JapyxTrails.taco";
+      output.settings.author = "Japyx";
       remote.github = {
         owner = "OlivierCharton";
         repo = "JapyxTrails";
@@ -133,6 +145,7 @@
     };
     lady-elyssa = {
       name = "Lady Elyssa's Guides";
+      output.settings.author = "Lady Elyssa";
       fileName = "LadyElyssa.taco";
       remote.github = {
         owner = "LadyElyssa";
@@ -173,6 +186,7 @@
     nekres-hoard-lost-forgotten = {
       name = "Nekres' Hoard of Lost 'n Forgotten Markers";
       fileName = "Nekres.Markers.taco";
+      output.settings.author = "Nekres";
       remote.github = {
         owner = "agaertner";
         repo = "bhud-markers";
@@ -203,6 +217,7 @@
     pewpews = {
       name = "Pewpew's Power Paths";
       fileName = "Pewpews_Power_Paths.taco";
+      output.settings.author = "Pewpew";
       remote.github = {
         owner = "Girbilcannon";
         repo = "Pewpews-Power-Paths";
@@ -244,8 +259,9 @@
       };
     };
     rediche-wvw = {
-      name = "Reciche's WvW Siege Pack";
+      name = "WvW Siege Pack";
       fileName = "RedicheWvwPack.taco";
+      output.settings.author = "Rediche";
       remote.github = {
         owner = "rediche";
         repo = "rediche-wvw-pack";
@@ -257,6 +273,7 @@
     tekkits-aio = {
       name = "Tekkit's All-In-One";
       fileName = "tw_ALL_IN_ONE.taco";
+      url = "https://www.tekkitsworkshop.net";
       stock.enable = true;
       remote.direct = {
         #url = "https://www.tekkitsworkshop.net/download?download=1:tw-all-in-one";
@@ -273,11 +290,16 @@
     tryhard = {
       name = "The Tryhard Marker Pack";
       fileName = "Deroirs Tryhard Marker Pack.zip";
+      output.settings.author = "Deroir";
       remote.manual.url = "https://drive.google.com/file/d/15Eqex_HIO3B0Aga4qWL8kLc1vlVEIJ8e/view";
       versions."2018-11-19".hash = "sha256-XFD4zU4ZM6IcxWPPOx1C3u0o8T5n9aQZC2bTtWxV604";
     };
     tyria-drft = {
       name = "Tyria DRFT";
+      output.settings = {
+        author = "DRFT";
+        display_name = "Tyria Drift Racetracks";
+      };
       fileName = "DRFT_Main.taco";
       remote.github = {
         owner = "n1nj44r91";
@@ -299,6 +321,7 @@
     zippy-ziplines = {
       name = "Zippy Ziplines";
       fileName = "Zippy.taco";
+      output.settings.author = "Pewpew";
       remote.github = {
         owner = "Girbilcannon";
         repo = "zippy";
