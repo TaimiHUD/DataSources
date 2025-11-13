@@ -12,6 +12,25 @@
       };
       versions."v1.8.4".hash = null;
     };
+    kittywitch-hero-timers = {
+      name = "Kat's fork of Hero's Timers";
+      description = "DEPRECATED. No longer recommended, please switch to QuitarHero's Timers.";
+      remote.github = {
+        owner = "kittywitch";
+        repo = "Hero-Timers";
+        releases.enable = true;
+      };
+      versions."v1.0.1".hash = null;
+      output = {
+        settings = {
+          # this could mean something to someone someday
+          deprecated = true;
+          author = "Kat";
+        };
+        # bury it
+        sortPrio = 9000;
+      };
+    };
     sabetha-timers = {
       name = "Sabetha Timers";
       fileName = "Sabetha-Timers";

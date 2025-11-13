@@ -3,27 +3,32 @@
     tehs-trails = {
       name = "Teh's Trails - Map Completion";
       fileName = "TehsTrails.taco";
-      description = "A collection of xTeh.7146's marker packs.";
       stock.enable = true;
       remote.github = {
         owner = "xrandox";
         repo = "TehsTrails";
         releases.enable = true;
       };
+      output = {
+        sortPrio = 10;
+        settings.author = "xTeh.7146";
+      };
       versions."v5.2.0".hash = "sha256-uY+lolPEnR7QbcexpU9wzpy5CfVXFeQaxzLsZBp+tSo=";
-      output.sortPrio = 10;
     };
     tehs-trails-hp = {
       name = "Teh's Trails - Hero Points";
-      description = "A collection of xTeh.7146's marker packs. This pack contains trails for speed-completing Hero Points either solo or in small groups.";
+      description = "This pack contains trails for speed-completing Hero Points either solo or in small groups.";
       fileName = "TehsTrails-HeroPoints.taco";
       remote.github = {
         owner = "xrandox";
         repo = "TehsTrails-HeroPoints";
         releases.enable = true;
       };
+      output = {
+        sortPrio = 10;
+        settings.author = "xTeh.7146";
+      };
       versions."v1.0".hash = "sha256-hbdUuFNlr+5FFQG4wqQhm1/JMJ/CQP34mE9VR0Ztafg=";
-      output.sortPrio = 10;
     };
     turtlepoint = {
       name = "TurtlePoint";
@@ -125,6 +130,7 @@
     heroine-darks-guides = {
       name = "HeroineDark's Super Adventure Box Guide";
       fileName = "HeroineDark_SAB_Guides.taco";
+      output.settings.displayName = "Super Adventure Box Guide";
       remote.github = {
         owner = "HeroineDark";
         repo = "HeroineDarks-Super-Adventure-Box-Guide";
@@ -164,6 +170,24 @@
         "v21.9.3".hash = null;
         "v21.9.4".hash = null;
       };
+      output.sortPrio = 10;
+    };
+    lady-elyssa-achievements = {
+      name = "Lady Elyssa's Achievements Guide";
+      output.settings.author = "Lady Elyssa";
+      fileName = "LadyElyssaAP.taco";
+      remote.github = {
+        owner = "LadyElyssa";
+        repo = "LadyElyssaAchievementGuides";
+        releases.enable = true;
+      };
+      versions = {
+        "v5.1".hash = null;
+        "v5.2".hash = null;
+        "v5.3".hash = null;
+        "v5.3.1".hash = null;
+      };
+      output.sortPrio = 10;
     };
     masmer-fractal-skips = {
       name = "Mesmer Fractal Skips";
@@ -187,7 +211,6 @@
         "v10.2.1".hash = "sha256-UtaHxBT5M7J8D4BxV/REfJhfKfv3A7j9ctd6vMWLGfE=";
         "v11.0".hash = null;
       };
-      # TODO: fix inconsistent casing: <overlaydata></OverlayData>
     };
     nekres-hoard-lost-forgotten = {
       name = "Nekres' Hoard of Lost 'n Forgotten Markers";
@@ -343,6 +366,59 @@
       versions = {
         "Zippy1_8_0".hash = "sha256-Q2t3oCBE6/rRPx158//Ye5t62/i4XwuqEyVnBkktQsM=";
         "Zippy2_0_0".hash = null;
+      };
+    };
+    # mirrors sure are popular these days huh
+    principes-regalus-voe = {
+      name = "VoE Mirrors and oChests";
+      description = "This marker pack is for those who wish it was easier to find the location of obscure chests.";
+      fileName = "VoE_Mirrors_and_oChests.taco";
+      remote.github = {
+        owner = "PrincipesRegalus";
+        repo = "PrincipesRegalus-s-VoE-Obscure-Map";
+        releases.enable = true;
+      };
+      output.sortPrio = 25;
+      versions = {
+        "V1.0".hash = null;
+        "V1.2".hash = null;
+      };
+    };
+    shinys-trails = {
+      name = "Shinymeta's Markers";
+      fileName = "shinystrails.taco";
+      output = {
+        settings.author = "Shinymeta";
+        sortPrio = 25;
+      };
+      remote.github = {
+        owner = "ShinyMeta";
+        repo = "ShinysTrails";
+        releases.enable = true;
+      };
+      versions = {
+        "1.0.0".hash = null;
+        "1.0.1".hash = null;
+        "1.0.2".hash = null;
+        "1.0.3".hash = null;
+      };
+    };
+    linus-voe = {
+      name = "Linus VoE Chest Farm";
+      description = "Paths and Makers for farming Magic Mirrors and Chests from VoE maps. No alts required and doesn't require doing any extra events for keys.";
+      fileName = "Linus_VoE_Chest_Farm.taco";
+      output = {
+        settings.author = "Smoothie, u/Galnis";
+        sortPrio = 25;
+      };
+      remote.github = {
+        owner = "smoothie22";
+        repo = "Linus-VoE-Chest-Farm-Route";
+        releases.enable = true;
+      };
+      versions = {
+        "1.0.0".hash = null;
+        "1.1.0".hash = null;
       };
     };
   };
