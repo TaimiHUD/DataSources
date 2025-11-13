@@ -15,8 +15,10 @@ in {
     fetcher.args = let
       hasRef = cfg.releases.enable || cfg.archive.enable;
     in mkIf cfg.enable {
-      versionName = mkIf (hasRef && hasPrefix "v" config.versionName) (mkAlmostOptionDefault (
-        removePrefix "v" config.versionName
+      versionName = mkIf (hasRef && (hasPrefix "v" config.versionName || hasPrefix "V" config.versionName || builtins.match "[0-9.]*" config.versionName != null)) (mkAlmostOptionDefault (
+        removePrefix "V" (
+          removePrefix "v" config.versionName
+        )
       ));
       ref = mkIf hasRef (mkOptionDefault "refs/tags/${config.versionName}");
     };
