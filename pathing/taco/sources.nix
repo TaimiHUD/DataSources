@@ -270,6 +270,8 @@
           hash = "";
         };*/
         "2024-12-22".hash = "sha256-KL+NaJ10cuTCwqzkxvzF0OwpLPEAxGv7nbh2VlCBt4g=";
+        # this version is suspect, is someone repacking these?
+        "2025-03-01".hash = "sha256-hKd7WI3E1J9TpqECx9eLf8l8GBToUy6IJ4lmr+WutwY=";
       };
       output.sortPrio = 10;
     };
@@ -285,6 +287,7 @@
           hash = "sha256-eqO8/NfSDAhMeGV/3BpKahxlhQsCOWRtREXzeI8uMPg=";
         };*/
         "2020-11-30".hash = "sha256-7/DYvBiEGNW36pGMm08PsI2uQo/bPKVVRD3FHdyfbak=";
+        "2025-03-01".hash = "sha256-0ZOUCmsSaTuGjHQn0xU0lGUU1YhHgzyOhK/2w2/Xi0g=";
       };
     };
     rediche-wvw = {
@@ -366,6 +369,25 @@
       versions = {
         "Zippy1_8_0".hash = "sha256-Q2t3oCBE6/rRPx158//Ye5t62/i4XwuqEyVnBkktQsM=";
         "Zippy2_0_0".hash = null;
+      };
+    };
+    gw2taco = {
+      name = "GW2TacO Markers";
+      description = "The default marker pack included with GW2TacO";
+      url = "https://www.gw2taco.com";
+      fileName = "TacOMarkers.taco";
+      remote.manual.url = "https://github.com/BoyC/GW2TacO/blob/0ccb34c7a8b89a417daeacbc3de3f1bb0a18fa71/POIs/TacOMarkers.taco";
+      remote.github = {
+        # TODO
+        enable = false;
+        owner = "BoyC";
+        repo = "GW2TacO";
+        sourceFile.path = "POIs/TacOMarkers.taco";
+      };
+      versions."2022-04-05".hash = "sha256-9StPq+IwQQAHmzG/u+oS2BHBKSsEQjEoVcn9zm11q5I=";
+      output.settings = {
+        author = "GW2TacO";
+        display_name = "TacO Stock Markers";
       };
     };
     # mirrors sure are popular these days huh
