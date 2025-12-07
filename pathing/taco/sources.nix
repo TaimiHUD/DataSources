@@ -2,6 +2,7 @@
   config.datasources.pathing = {
     tehs-trails = {
       name = "Teh's Trails - Map Completion";
+      description = "Tailored for speedrunning map completion, utilizing all mounts and waypoints.";
       fileName = "TehsTrails.taco";
       stock.enable = true;
       remote.github = {
@@ -17,7 +18,7 @@
     };
     tehs-trails-hp = {
       name = "Teh's Trails - Hero Points";
-      description = "This pack contains trails for speed-completing Hero Points either solo or in small groups.";
+      description = "Trails for speed-completing Hero Points either solo or in small groups.";
       fileName = "TehsTrails-HeroPoints.taco";
       remote.github = {
         owner = "xrandox";
@@ -152,8 +153,11 @@
     };
     lady-elyssa = {
       name = "Lady Elyssa's Guides";
+      description = "A comprehensive collection of TacO Markers and Trails";
+      url = "https://github.com/LadyElyssa/LadyElyssaTacoTrails?tab=readme-ov-file#lady-elyssas-taco-trail-guides";
       output.settings.author = "Lady Elyssa";
       fileName = "LadyElyssa.taco";
+      stock.enable = true;
       remote.github = {
         owner = "LadyElyssa";
         repo = "LadyElyssaTacoTrails";
@@ -174,6 +178,8 @@
     };
     lady-elyssa-achievements = {
       name = "Lady Elyssa's Achievements Guide";
+      description = "A pack focused purely on Achievements and Collections";
+      url = "https://github.com/LadyElyssa/LadyElyssaAchievementGuides?tab=readme-ov-file#lady-elyssas-achievement--collection-guides";
       output.settings.author = "Lady Elyssa";
       fileName = "LadyElyssaAP.taco";
       remote.github = {
@@ -187,7 +193,7 @@
         "v5.3".hash = null;
         "v5.3.1".hash = null;
       };
-      output.sortPrio = 10;
+      output.sortPrio = 15;
     };
     masmer-fractal-skips = {
       name = "Mesmer Fractal Skips";
@@ -201,7 +207,9 @@
     };
     metal-marker-myriad = {
       name = "Metal Marker Myriad";
+      description = "A random assortment of markers";
       fileName = "Metal-Marker-Myriad.taco";
+      output.settings.author = "Metallis.6105";
       remote.github = {
         owner = "Metallis";
         repo = "Metal-Marker-Myriad";
@@ -211,6 +219,7 @@
         "v10.2.1".hash = "sha256-UtaHxBT5M7J8D4BxV/REfJhfKfv3A7j9ctd6vMWLGfE=";
         "v11.0".hash = null;
       };
+      output.sortPrio = 10;
     };
     nekres-hoard-lost-forgotten = {
       name = "Nekres' Hoard of Lost 'n Forgotten Markers";
@@ -258,9 +267,11 @@
       };
     };
     reactif-en = {
-      name = "ReActif (EN)";
+      name = "ReActif EN";
+      description = "Mega pack of 921 achievements with 18011 markers and 982 trails";
       fileName = "GW2 TacO ReActif EN External.taco";
       url = "https://web.archive.org/web/20241204004932/https://www.heinze.fr/taco/?lang=en";
+      stock.enable = true;
       remote.manual.url = "https://reactif.games/taco/download.php?f=3";
       # TODO? unknown attrs: resetoffset, hascountdown
       versions = {
@@ -273,10 +284,16 @@
         # this version is suspect, is someone repacking these?
         "2025-03-01".hash = "sha256-hKd7WI3E1J9TpqECx9eLf8l8GBToUy6IJ4lmr+WutwY=";
       };
-      output.sortPrio = 10;
+      output = {
+        sortPrio = 10;
+        settings = {
+          display_name = "ReActif (EN)";
+        };
+      };
     };
     reactif-fr = {
-      name = "ReActif (FR)";
+      name = "ReActif FR";
+      description = "Méga Pack de 921 succès avec 18011 marqueurs et 982 parcours";
       fileName = "GW2 TacO ReActif FR Externe.taco";
       url = "https://web.archive.org/web/20250216050634/https://www.heinze.fr/taco/";
       remote.manual.url = "https://www.heinze.fr/taco/download.php?f=6";
@@ -288,6 +305,9 @@
         };*/
         "2020-11-30".hash = "sha256-7/DYvBiEGNW36pGMm08PsI2uQo/bPKVVRD3FHdyfbak=";
         "2025-03-01".hash = "sha256-0ZOUCmsSaTuGjHQn0xU0lGUU1YhHgzyOhK/2w2/Xi0g=";
+      };
+      output.settings = {
+        display_name = "ReActif (FR)";
       };
     };
     rediche-wvw = {
@@ -324,7 +344,6 @@
           hash = "sha256-bHpKeBBIr8F4BNO2sAaaCloQ5I5N7CFNZ0o059Iba2M=";
         };
       };
-      output.sortPrio = 10;
     };
     tryhard = {
       name = "The Tryhard Marker Pack";
