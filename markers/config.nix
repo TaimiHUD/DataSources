@@ -11,6 +11,7 @@
       };
       remote.direct = {
         url = "https://bhm.blishhud.com/Manlaan.CommanderMarkers/Community/Markers.json";
+        # TODO: https://github.com/manlaan/BlishHud-CommanderMarkers/raw/refs/heads/bhud-static/Manlaan.CommanderMarkers/Community/Markers.json
       };
       versions."latest".hash = null;
     };
