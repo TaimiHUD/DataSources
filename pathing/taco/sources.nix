@@ -288,6 +288,7 @@
     only-fish = {
       name = "Only Fish";
       fileName = "Only-Fish.taco";
+      output.settings.author = "Metallis.6105";
       remote.github = {
         owner = "Metallis";
         repo = "Only-Fish-Marker-Pack";
