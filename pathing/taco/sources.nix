@@ -106,6 +106,7 @@
     heart-zones = {
       name = "Heart Zones";
       fileName = "HeartZones.taco";
+      output.settings.author = "Freesnöw";
       remote.github = {
         owner = "dlamkins";
         repo = "heart-zones";
@@ -131,7 +132,7 @@
     heroine-darks-guides = {
       name = "HeroineDark's Super Adventure Box Guide";
       fileName = "HeroineDark_SAB_Guides.taco";
-      output.settings.displayName = "Super Adventure Box Guide";
+      output.settings.display_name = "Super Adventure Box Guide";
       remote.github = {
         owner = "HeroineDark";
         repo = "HeroineDarks-Super-Adventure-Box-Guide";

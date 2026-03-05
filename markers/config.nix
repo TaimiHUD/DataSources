@@ -3,10 +3,10 @@
     blishhud-community = {
       name = "BlishHUD Community Markers";
       fileName = "Community.markers";
-      description = "Markers provided by the community for BlishHUD's Commander's Markers.";
+      description = "Markers provided by the community for Commander's Markers.";
       url = "https://github.com/manlaan/BlishHud-CommanderMarkers/tree/bhud-static/Manlaan.CommanderMarkers";
       output.settings = {
-        author = "BlishHUD Community";
+        author = "Blish HUD Community";
         display_name = "Community Markers";
       };
       remote.direct = {
@@ -17,10 +17,10 @@
     blishhud-cm = {
       name = "BlishHUD Commander's Markers Internal Markers";
       fileName = "Extracted.markers";
-      description = "Markers that were embedded into the source code of BlishHUD's Commander's Markers.";
+      description = "Markers that were embedded into the source code of Commander's Markers.";
       stock.enable = true;
       output.settings = {
-        author = "BlishHUD Commander's Markers";
+        author = "Blish HUD Commander's Markers";
         display_name = "Stock Markers";
       };
       remote.github = {
