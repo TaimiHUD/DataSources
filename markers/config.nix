@@ -18,10 +18,10 @@
     blishhud-cm = {
       name = "BlishHUD Commander's Markers Internal Markers";
       fileName = "Extracted.markers";
-      description = "Markers that were embedded into the source code of Commander's Markers.";
+      description = "Markers that were embedded into the source code of Blish HUD Commander's Markers.";
       stock.enable = true;
       output.settings = {
-        author = "Blish HUD Commander's Markers";
+        author = "Commander's Markers";
         display_name = "Stock Markers";
       };
       remote.github = {
