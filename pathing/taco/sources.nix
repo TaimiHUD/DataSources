@@ -69,6 +69,36 @@
       };
       versions."v1.0".hash = "sha256-WIDIkAOc8cccUVgSLlT3He5hdJOawLN6O3Co2Pj4gis=";
     };
+    apo-boss = {
+      name = "Apo's Boss Markers";
+      fileName = "apo_markers.zip";
+      description = "Markers for Kela";
+      output.settings.author = "Apocalypse.5289";
+      remote.github = {
+        owner = "ApocalypseGW2";
+        repo = "apo-markers";
+        releases.enable = true;
+      };
+      versions."v.1.0.5".hash = "sha256-Nrl7gq3l2hGbVSQDoz6MPpsAuFqVI6v7lyTHejab4a4=";
+    };
+    convergence-corp = { config, ... }: let
+      url = "https://convergencecorp.net/";
+    in {
+      name = "Convergence Corp Trails";
+      fileName = "ConvergenceCorpTrails.taco";
+      description = "A Marker/Pathing pack for Convergences! Includes some JW hearts.";
+      # inherit url; # requested as description
+      output.settings = {
+        description = "${config.description}\n${url}";
+        author = "SunMatrix.4168";
+      };
+      remote.github = {
+        owner = "RGodwinDev";
+        repo = "ConvergenceCorpTrails";
+        releases.enable = true;
+      };
+      versions."v1.0.2".hash = "sha256-xxyTngwAnOMoy78bi9zJXj/Vv+M9VjBvwiIK8YPpRl8=";
+    };
     czokalapik = {
       name = "Czokalapik's Guides for GW2Taco";
       fileName = "Czokalapik-s-Guides-for-GW2Taco.taco";
@@ -102,6 +132,18 @@
         releases.enable = true;
       };
       versions."V3".hash = "sha256-/KINq3fur93I4g8TBu0SUDvJiiBrXGdgVwrYT/xjye0=";
+    };
+    haskha = {
+      name = "HasKha's Markers";
+      fileName = "haskha_markers.zip";
+      description = "Raid markers - including Febe and Ura CM";
+      output.settings.author = "HasKha";
+      remote.github = {
+        owner = "HasKha";
+        repo = "gw2-markers";
+        releases.enable = true;
+      };
+      versions."3.2.0".hash = "sha256-7oKTzzzHewRqNe7Spiye1CLK1wfnEI/OnZlezqUyJgE=";
     };
     heart-zones = {
       name = "Heart Zones";
