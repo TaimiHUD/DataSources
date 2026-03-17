@@ -1,6 +1,8 @@
-{ config, lib, ... }: let
+{ config, datasourceConfig, lib, inputs, ... }: let
   inherit (lib.options) mkOption mkEnableOption;
   inherit (lib.strings) nameFromURL removePrefix;
+  inherit (lib.customisation) makeOverridable;
+  inherit (lib.trivial) setFunctionArgs functionArgs;
   inherit (lib) types;
   getFileExt = getFileSuffix ".";
   getFileSuffix = sep: filename: let
@@ -112,6 +114,28 @@ in {
           rev = ref;
         } // extraArgs);
       in fetchFromGitHub fetchArgs;
+      updateCheckFor = {
+        runCommand
+      , curl, jq
+      }: let
+        mkUpdateCheck = import ./update-check.nix {
+          inherit runCommand curl jq lib;
+          inherit (inputs.self) sourceInfo;
+        };
+      in {
+        versionName ? "unknown"
+        , ref ? if versionName != null then "refs/tags/${versionName}" else throw "ref or versionName required"
+        , refName ? removePrefix "refs/tags/" ref
+      }: makeOverridable mkUpdateCheck {
+        inherit (config) owner repo;
+        inherit refName;
+        pname = datasourceConfig.name;
+      };
+      updateCheck = let
+        missing = throw "no update check for ${datasourceConfig.name}";
+        fallback = args: if config.get ? updateCheckFor then config.get.updateCheckFor args {} else missing;
+        f = args: ((datasourceConfig.latest.getVersion {}).get.updateCheck or fallback) args;
+      in setFunctionArgs f (functionArgs config.get.updateCheckFor);
     };
   };
 }

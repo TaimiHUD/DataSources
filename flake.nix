@@ -37,19 +37,14 @@
           datasources = self;
           inherit (packages) packs sources;
         };
-        github-release-check = callPackage self.lib.github-release-check {};
         updateChecks = let
-          inherit (nixlib) mapAttrsToList attrValues concatLists filter makeOverridable removePrefix;
+          inherit (nixlib) mapAttrsToList attrValues concatLists filter;
           inherit (self.lib.datasources.config) datasources;
-          filterGithubSources = filter (ds: ds.remote.github.enable or false);
-          getGithubSources = dss: filterGithubSources (attrValues dss);
-          githubSources = concatLists (mapAttrsToList (_: getGithubSources) datasources);
-          mkGithubUpdate = ds: makeOverridable legacyPackages.github-release-check {
-            pname = ds.name;
-            ref = removePrefix "refs/tags/" ds.versions.${toString ds.latest.version}.fetcher.args.ref or "unknown";
-            inherit (ds.remote.github) owner repo;
-          };
-        in map mkGithubUpdate githubSources;
+          filterUpdateSources = filter (ds: ds.updates.check.enable or false);
+          getUpdateSources = dss: filterUpdateSources (attrValues dss);
+          updateSources = concatLists (mapAttrsToList (_: getUpdateSources) datasources);
+          mkUpdateCheck = ds: callPackage ds.updates.check.get.mkCheck {};
+        in map mkUpdateCheck updateSources;
         allUpdateChecks = let
           mkUpdateLink = up: {
             inherit (up) name;
@@ -73,6 +68,7 @@
         datasource'manual = ./modules/manual/datasource.nix;
         datasource'direct = ./modules/direct/datasource.nix;
         datasource'github = ./modules/github/datasource.nix;
+        datasource'updates = ./modules/updates/datasource.nix;
         default = let
           inherit (self.datasourceModules) datasource;
         in _: {
@@ -81,6 +77,7 @@
             datasource.datasource'manual
             datasource.datasource'direct
             datasource.datasource'github
+            datasource.datasource'updates
           ];
         };
       };
@@ -144,59 +141,6 @@
           inherit inputs;
         };
       };
-      github-release-check = {
-        runCommand
-      , curl, jq
-      }: {
-        pname
-      , ref
-      , owner
-      , repo
-      , impure ? toString builtins.currentTime or self.sourceInfo.lastModified
-      , outputHashAlgo ? "sha256"
-      }: runCommand "${pname}-check-${ref}" {
-        inherit pname outputHashAlgo impure ref owner repo;
-        outputHash = builtins.hashString outputHashAlgo "${pname}!${ref}!${impure}\n";
-        outputHashMode = "flat";
-        preferLocalBuild = true;
-        allowSubstitutes = false;
-        impureEnvVars = nixlib.fetchers.proxyImpureEnvVars ++ [ "NIX_CURL_FLAGS" ];
-        nativeBuildInputs = [ curl jq ];
-        #queryRelease = "sort_by(.tag_name) | [.[]|select(.prerelease==false and .draft==false)] | .[-1].tag_name";
-        queryTag = "sort_by(.name) | .[-1].name";
-        queryReleaseLatest = ".tag_name";
-        meta.displayName = "${pname} ${ref} outdated";
-      } ''
-        #RELEASE_URL="https://api.github.com/repos/$owner/$repo/releases"
-        RELEASE_URL="https://api.github.com/repos/$owner/$repo/releases/latest"
-        TAGS_URL="https://api.github.com/repos/$owner/$repo/tags"
-        if REPO_RELEASES=$(curl \
-          --insecure \
-          -fSsL \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          $NIX_CURL_FLAGS \
-          "$RELEASE_URL"
-        ); then
-          REPO_LATEST=$(jq -r "$queryReleaseLatest" - <<< "$REPO_RELEASES")
-        elif REPO_TAGS=$(curl \
-          --insecure \
-          -fSsL \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          $NIX_CURL_FLAGS \
-          "$TAGS_URL"
-        ); then
-          REPO_LATEST=$(jq -r "$queryTag" - <<< "$REPO_TAGS")
-        else
-          echo failed to query latest release >&2
-          return 1
-        fi
-        if [[ $REPO_LATEST = $ref ]]; then
-          echo "$pname-$ref up-to-date" >&2
-        else
-          echo "$pname-$ref out of date, found version $REPO_LATEST" >&2
-        fi
-        printf '%s!%s!%s\n' "$pname" "$REPO_LATEST" "$impure" > $out
-      '';
     };
   };
 }

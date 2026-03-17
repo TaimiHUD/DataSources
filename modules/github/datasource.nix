@@ -39,5 +39,6 @@ in {
       repository = cfg.repo;
     };
     url = mkAlmostOptionDefault "https://github.com/${cfg.owner}/${cfg.repo}";
+    updates.check.get.mkCheck = mkAlmostOptionDefault cfg.get.updateCheck;
   };
 }

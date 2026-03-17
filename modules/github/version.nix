@@ -3,12 +3,18 @@
   inherit (lib.attrsets) mapAttrs;
   inherit (lib.modules) mkDefault mkOptionDefault mkIf;
   inherit (lib.strings) hasPrefix removePrefix;
-  inherit (lib.trivial) defaultTo;
+  inherit (lib.trivial) setFunctionArgs functionArgs defaultTo;
   cfg = defaultTo {
     enable = false;
   } datasourceConfig.remote.github or null;
   get = mapAttrs (_: mkDefault) {
-    inherit (cfg.get) fetcherFor srcFetcherFor;
+    inherit (cfg.get) fetcherFor srcFetcherFor updateCheckFor;
+    updateCheck = let
+      f = args: config.get.updateCheckFor args {
+        ${if config.fetcher.args ? versionName then "versionName" else null} = config.fetcher.args.versionName;
+        ${if config.fetcher.args ? ref then "ref" else null} = config.fetcher.args.ref;
+      };
+    in setFunctionArgs f (functionArgs cfg.get.updateCheckFor);
   };
 in {
   config = {

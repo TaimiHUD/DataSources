@@ -36,6 +36,9 @@ in {
       url = mkOption {
         type = types.nullOr types.str;
       };
+      getVersion = mkOption {
+        type = types.unspecified;
+      };
     };
     output = {
       enable = mkEnableOption "sources.toml output" // {
@@ -60,9 +63,10 @@ in {
       );
       url = let
         hasUrl = config.latest.version != null && url != null;
-        version = config.versions.${config.latest.version};
+        version = config.latest.getVersion {};
         url = version.get.urlFor {} {};
       in mkOptionDefault (if hasUrl then url else null);
+      getVersion = mkOptionDefault ({}: config.versions.${config.latest.version} or null);
     };
     output.settings = {
       name = mkOptionDefault config.name;

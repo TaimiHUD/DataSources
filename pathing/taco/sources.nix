@@ -14,7 +14,10 @@
         sortPrio = 10;
         settings.author = "xTeh.7146";
       };
-      versions."v5.2.0".hash = "sha256-uY+lolPEnR7QbcexpU9wzpy5CfVXFeQaxzLsZBp+tSo=";
+      versions = {
+        "v5.2.0".hash = "sha256-uY+lolPEnR7QbcexpU9wzpy5CfVXFeQaxzLsZBp+tSo=";
+        "v6.0.1".hash = null;
+      };
     };
     tehs-trails-hp = {
       name = "Teh's Trails - Hero Points";
@@ -97,7 +100,10 @@
         repo = "ConvergenceCorpTrails";
         releases.enable = true;
       };
-      versions."v1.0.2".hash = "sha256-xxyTngwAnOMoy78bi9zJXj/Vv+M9VjBvwiIK8YPpRl8=";
+      versions = {
+        "v1.0.2".hash = "sha256-xxyTngwAnOMoy78bi9zJXj/Vv+M9VjBvwiIK8YPpRl8=";
+        "v1.0.3".hash = null;
+      };
     };
     czokalapik = {
       name = "Czokalapik's Guides for GW2Taco";
@@ -143,7 +149,10 @@
         repo = "gw2-markers";
         releases.enable = true;
       };
-      versions."3.2.0".hash = "sha256-7oKTzzzHewRqNe7Spiye1CLK1wfnEI/OnZlezqUyJgE=";
+      versions = {
+        "v3.2.0".hash = "sha256-7oKTzzzHewRqNe7Spiye1CLK1wfnEI/OnZlezqUyJgE=";
+        "v3.4.0".hash = null;
+      };
     };
     heart-zones = {
       name = "Heart Zones";
@@ -168,6 +177,7 @@
         "v2.7.6".hash = "sha256-AxkRx+YxMpb8/IFrGBQrYiFZHkRvokD3OimY1CzBx3c=";
         "v2.7.10.2".hash = null;
         "v2.7.11".hash = null;
+        "v2.8.1".hash = null;
       };
       # TODO? some POIs may need mapid assigned, only mentioned in xml comments...
     };
@@ -216,6 +226,7 @@
         "v21.9.2".hash = null;
         "v21.9.3".hash = null;
         "v21.9.4".hash = null;
+        "v23.9".hash = null;
       };
       output.sortPrio = 10;
     };
@@ -235,6 +246,7 @@
         "v5.2".hash = null;
         "v5.3".hash = null;
         "v5.3.1".hash = null;
+        "v5.6".hash = null;
       };
       output.sortPrio = 15;
     };
@@ -486,6 +498,7 @@
         "1.0.1".hash = null;
         "1.0.2".hash = null;
         "1.0.3".hash = null;
+        "1.0.6".hash = null;
       };
     };
     linus-voe = {
@@ -504,6 +517,7 @@
       versions = {
         "1.0.0".hash = null;
         "1.1.0".hash = null;
+        "2.1.4".hash = null;
       };
     };
   };

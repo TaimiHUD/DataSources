@@ -10,7 +10,10 @@
         repo = "Hero-Timers";
         releases.enable = true;
       };
-      versions."v1.8.4".hash = null;
+      versions = {
+        "v1.8.4".hash = null;
+        "v1.8.6".hash = null;
+      };
     };
     kittywitch-hero-timers = {
       name = "Kat's fork of Hero's Timers";
@@ -41,7 +44,10 @@
         repo = "Sabetha-Timers";
         archive.enable = true;
       };
-      versions."0.0.1".hash = null;
+      versions = {
+        "0.0.1".hash = null;
+        "0.0.2".hash = null;
+      };
     };
   };
 }

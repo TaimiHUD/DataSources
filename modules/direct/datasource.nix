@@ -20,6 +20,7 @@ in {
     };
   };
   config = mkIf cfg.enable or false {
+    updates.check.enable = mkAlmostOptionDefault (lib.warn "TODO: update check for direct url" false);
     output.settings = mapAttrs (_: mkAlmostOptionDefault) {
       type = "Direct";
       inherit (cfg) url;

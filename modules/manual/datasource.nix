@@ -19,6 +19,7 @@ in {
     };
   };
   config = mkIf cfg.enable or false {
+    updates.check.enable = mkAlmostOptionDefault false;
     output.enable = mkAlmostOptionDefault false;
     url = mkAlmostOptionDefault cfg.url;
   };

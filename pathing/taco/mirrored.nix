@@ -38,6 +38,7 @@
       };
     };
   in {
+    updates.check.enable = mkDefault false;
     output = {
       enable = mkDefault true;
       settings = mapAttrs (_: mkDefault) (settings.direct);
@@ -109,6 +110,7 @@ in {
           '';
         };
       };
+      updates.check.enable = false;
       output.enable = false;
     };
     reactif-en = mkMerge [
