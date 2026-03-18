@@ -116,6 +116,18 @@
       };
       versions."v1.0.0".hash = "sha256-tTaHk97mbxgf2HWcxP+4hbk+VzvQDP4BI62HOJFKqLI=";
     };
+    dungeon-guide = {
+      name = "Dungeon Guide";
+      fileName = "FvD_Dungeon_Guide.taco";
+      description = "The Friends Versus Dungeons guide for people who get lost easily";
+      output.settings.author = "[FvD]";
+      remote.github = {
+        owner = "SZG5";
+        repo = "gw2-dungeon-markers";
+        releases.enable = true;
+      };
+      versions."0.6.0".hash = "sha256-tvzxTvB7d1Qa6C5Ug/Tztm+FrjQPmyST9lYaH8YEl1o=";
+    };
     emysmarkers = {
       #name = "Emythiel's GW2 Markers";
       name = "Emythiel's HoT HP Marker Pack";
