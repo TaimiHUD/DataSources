@@ -35,7 +35,9 @@ in
       };
       updates = {
         tasks = {
-          build.inputs = legacyPackages.updateChecks;
+          build.inputs = legacyPackages.updateChecks ++ [
+            legacyPackages.allIncompleteSrcs
+          ];
         };
       };
     };

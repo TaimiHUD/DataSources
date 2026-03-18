@@ -28,20 +28,23 @@ in {
         inherit (config) url;
         fileName' = defaultTo datasourceConfig.fileName args.fileName or null;
         fileName = defaultTo (builtins.baseNameOf config.url) fileName';
-      in {
-        inherit url hash versionName fileName extraArgs;
-        __toString = self: let
-          message = ''
-            ${self.fileName} must be downloaded manually.
-            Please visit ${self.url} to download manually, and add to the store:
-              nix-store --add-fixed sha256 ${self.fileName}
-          '';
-        in requireFile ({
-          name = self.fileName;
-          inherit (self) url hash;
-          inherit message;
-        } // self.extraArgs);
-      };
+        fetcher = {
+          inherit url hash versionName fileName extraArgs;
+          fetch = fetcher {};
+          __toString = self: self {};
+          __functor = self: {}: let
+            message = ''
+              ${self.fileName} must be downloaded manually.
+              Please visit ${self.url} to download manually, and add to the store:
+                nix-store --add-fixed sha256 ${self.fileName}
+            '';
+          in requireFile ({
+            name = self.fileName;
+            inherit (self) url hash;
+            inherit message;
+          } // self.extraArgs);
+        };
+      in fetcher;
       srcFetcherFor = {}: args: let
         fetcher = config.get.fetcherFor args;
       in fetcher.__toString fetcher;

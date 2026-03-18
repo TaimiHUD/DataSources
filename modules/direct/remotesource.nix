@@ -33,15 +33,18 @@ in {
       , ...
       }: let
         inherit (config) url;
-      in {
-        inherit url hash versionName fileName extraArgs;
-        __toString = self: let
-          fileName = defaultTo (builtins.baseNameOf self.url) self.fileName or null;
-        in fetchurl ({
-          ${mapNullable (_: "name") self.versionName} = "${nameFromURL fileName "."}-${self.versionName}${getFileExt fileName}";
-          inherit (self) url hash;
-        } // self.extraArgs);
-      };
+        fetcher = {
+          inherit url hash versionName fileName extraArgs;
+          fetch = fetcher {};
+          __functor = self: {}: let
+            fileName = defaultTo (builtins.baseNameOf self.url) self.fileName or null;
+          in fetchurl ({
+            ${mapNullable (_: "name") self.versionName} = "${nameFromURL fileName "."}-${self.versionName}${getFileExt fileName}";
+            inherit (self) url hash;
+          } // self.extraArgs);
+          __toString = self: self {};
+        };
+      in fetcher;
       srcFetcherFor = {}: args: let
         fetcher = config.get.fetcherFor args;
       in fetcher.__toString fetcher;

@@ -17,6 +17,7 @@
     };
     kittywitch-hero-timers = {
       name = "Kat's fork of Hero's Timers";
+      fileName = "Heros-Timer-Pack.zip";
       description = "DEPRECATED. No longer recommended, please switch to QuitarHero's Timers.";
       remote.github = {
         owner = "kittywitch";

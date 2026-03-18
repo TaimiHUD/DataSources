@@ -77,13 +77,17 @@ in {
       , versionName ? removePrefix "refs/tags/" ref
       }: let
         url = "https://github.com/${config.owner}/${config.repo}/releases/download/${versionName}/${fileName}";
-      in {
-        inherit url hash ref versionName extraArgs fileName;
-        __toString = self: fetchurl ({
-          name = "${nameFromURL self.url "."}-${self.versionName}${getFileExt self.url}";
-          inherit (self) url hash;
-        } // self.extraArgs);
-      };
+      in let
+        fetcher = {
+          inherit url hash ref versionName extraArgs fileName;
+          fetch = fetcher {};
+          __functor = self: {}: fetchurl ({
+            name = "${nameFromURL self.url "."}-${self.versionName}${getFileExt self.url}";
+            inherit (self) url hash;
+          } // self.extraArgs);
+          __toString = self: self {};
+        };
+      in fetcher;
       fileFetcherFor = {
         fetchurl
       }: _: throw "TODO: github.get.fileFetcherFor";
@@ -96,12 +100,16 @@ in {
       , ...
       }: let
         url = "https://github.com/${config.owner}/${config.repo}/archive/${ref}.${config.archive.format}";
-      in {
-        inherit url hash ref extraArgs;
-        __toString = self: fetchurl ({
-          inherit (self) url hash;
-        } // self.extraArgs);
-      };
+      in let
+        fetcher = {
+          inherit url hash ref extraArgs;
+          fetch = fetcher {};
+          __functor = self: {}: fetchurl ({
+            inherit (self) url hash;
+          } // self.extraArgs);
+          __toString = self: self {};
+        };
+      in fetcher;
       srcFetcherFor = {
         fetchFromGitHub
       }: {

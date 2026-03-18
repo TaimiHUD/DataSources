@@ -42,7 +42,9 @@
           inherit (self.lib.datasources.config) datasources;
           mkDatasources = _: datasources: let
             availDatasources = filterAttrs (_: ds: /*ds.enable or*/ true) datasources;
-            mkVersionSrc = _: v: callPackage v.get.fetcher {} {};
+            mkVersionSrc = _: v: let
+              f = callPackage v.get.fetcher {} {};
+            in if f ? fetch then f.fetch // f else f;
             mkSrc = _: ds: let
               forVersion = mapAttrs mkVersionSrc ds.versions;
             in forVersion."${toString ds.latest.version}" or {} // {
@@ -69,6 +71,21 @@
           }: linkFarm "taimihud-update-checks" (map mkUpdateLink updateChecks);
         in callPackage allUpdateChecks {
           inherit (legacyPackages) updateChecks;
+        };
+        allIncompleteSrcs = let
+          inherit (nixlib) attrValues concatMap filter;
+          mkSrcLink = src: {
+            inherit (src) name;
+            path = src;
+          };
+          allIncompleteSrcs = {
+            incompleteSrcs
+          , linkFarm
+          }: linkFarm "taimihud-incomplete-srcs" (map mkSrcLink incompleteSrcs);
+        in callPackage allIncompleteSrcs {
+          incompleteSrcs = let
+            allSrcs = concatMap attrValues (attrValues legacyPackages.datasourceSrcs);
+          in filter (src: src.outputHash or null == nixlib.fakeHash) allSrcs;
         };
       };
     };
