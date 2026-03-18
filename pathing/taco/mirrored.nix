@@ -1,4 +1,5 @@
 { config, lib, ... }: let
+  mkNeutral = lib.modules.mkOverride lib.modules.defaultOverridePriority;
   inherit (lib.attrsets) mapAttrs genAttrs;
   inherit (lib.modules) mkDefault mkMerge;
   inherit (config.datasources.pathing) mirrored;
@@ -50,7 +51,7 @@
   , sourceDir
   }: let
     mkVersion = versionName: { datasourceConfig, config, ... }: {
-      get = mapAttrs (_: mkDefault) {
+      config.get = mapAttrs (_: mkNeutral) {
         fetcherFor = {
           fetchurl
         , fetchFromGitHub
@@ -66,7 +67,7 @@
       };
     };
   in {
-    versions = genAttrs mkVersion versions;
+    versions = genAttrs versions mkVersion;
   };
 in {
   config.datasources.pathing = {
@@ -78,7 +79,7 @@ in {
         owner = "TaimiHUD";
         repo = "DataSources-mirrored";
         releases.enable = true;
-        get = {
+        get = mapAttrs (_: mkNeutral) {
           fileFetcherFor = {
             fetchFromGitHub
           , fetchurl

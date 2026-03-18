@@ -1,6 +1,8 @@
 { config, datasourceConfig, lib, inputs, ... }: let
   inherit (lib.options) mkOption mkEnableOption;
+  inherit (lib.modules) mkDefault;
   inherit (lib.strings) nameFromURL removePrefix;
+  inherit (lib.attrsets) mapAttrs;
   inherit (lib.customisation) makeOverridable;
   inherit (lib.trivial) setFunctionArgs functionArgs;
   inherit (lib) types;
@@ -42,7 +44,7 @@ in {
     };
   };
   config = {
-    get = {
+    get = mapAttrs (_: mkDefault) {
       fetcherFor = {
         fetchurl
       , fetchFromGitHub
@@ -60,7 +62,7 @@ in {
         args' = {
           inherit hash ref;
         } // args;
-      in 
+      in
         if config.releases.enable then datasource'github'releaseFetcherFor args'
         else if config.archive.enable then datasource'github'archiveFetcherFor args'
         else if config.sourceFile.path != null then datasource'github'fileFetcherFor args'
