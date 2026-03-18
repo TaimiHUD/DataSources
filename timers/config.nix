@@ -12,7 +12,7 @@
       };
       versions = {
         "v1.8.4".hash = null;
-        "v1.8.6".hash = null;
+        "v1.8.6".hash = "sha256-u/3FAB1IXkTOCb7aVtioA3Oy6/byq3lUiQ85au7ReOA=";
       };
     };
     kittywitch-hero-timers = {
@@ -24,7 +24,7 @@
         repo = "Hero-Timers";
         releases.enable = true;
       };
-      versions."v1.0.1".hash = null;
+      versions."v1.0.1".hash = "sha256-SG2MeYw27Rpcnwecr0tbzqmEPfmIucQhWgucvw+aCf8=";
       output = {
         settings = {
           # this could mean something to someone someday
@@ -43,11 +43,22 @@
       remote.github = {
         owner = "kittywitch";
         repo = "Sabetha-Timers";
-        archive.enable = true;
+        #archive.enable = true;
+        releases.enable = true;
       };
-      versions = {
-        "0.0.1".hash = null;
-        "0.0.2".hash = null;
+      versions = let
+        versionFileName = { lib, config, datasourceConfig, ... }: {
+          config.fileName = lib.mkIf datasourceConfig.remote.github.releases.enable "Sabetha-Timers-${config.versionId}.tar.gz";
+        };
+      in {
+        "0.0.1" = _: {
+          imports = [ versionFileName ];
+          config.hash = null;
+        };
+        "0.0.2" = _: {
+          imports = [ versionFileName ];
+          config.hash = "sha256-uxkVXk2571l70XCqEBU1cjT/cOPEONGP1FAP96SdXLk=";
+        };
       };
     };
   };

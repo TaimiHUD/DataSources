@@ -16,7 +16,7 @@
       };
       versions = {
         "v5.2.0".hash = "sha256-uY+lolPEnR7QbcexpU9wzpy5CfVXFeQaxzLsZBp+tSo=";
-        "v6.0.1".hash = null;
+        "v6.0.1".hash = "sha256-3tegqRJQBv6efN6KIFW13dy8c/83zSUDS7ZDpZG4izo=";
       };
     };
     tehs-trails-hp = {
@@ -36,7 +36,7 @@
     };
     turtlepoint = {
       name = "TurtlePoint";
-      fileName = "TurtlePoint.taco";
+      fileName = "BurritosTurtlePoint.taco";
       remote.github = {
         owner = "AsherGlick";
         repo = "TurtlePoint";
@@ -44,7 +44,7 @@
       };
       versions = {
         "1.0".hash = "sha256-HmjH8BMbFtkidxpfwYA9rO6mA7hnv31qbMQXK9RywWY=";
-        "2.0".hash = null;
+        "2.0".hash = "sha256-Jlbo4jHz7fzJ0Bmc0H9a+MpWAUrXX2rHhMsWzUg4I00=";
       };
     };
     moar = {
@@ -102,7 +102,7 @@
       };
       versions = {
         "v1.0.2".hash = "sha256-xxyTngwAnOMoy78bi9zJXj/Vv+M9VjBvwiIK8YPpRl8=";
-        "v1.0.3".hash = null;
+        "v1.0.3".hash = "sha256-gTg/pCKaQg8e0os0BcW8mIdmZyCItAdr+lHmAWANitc=";
       };
     };
     czokalapik = {
@@ -151,7 +151,7 @@
       };
       versions = {
         "v3.2.0".hash = "sha256-7oKTzzzHewRqNe7Spiye1CLK1wfnEI/OnZlezqUyJgE=";
-        "v3.4.0".hash = null;
+        "v3.4.0".hash = "sha256-qrvl6hppnCk40uyKDq0hNJxrqk8tbTdSVqOP14XMXkU=";
       };
     };
     heart-zones = {
@@ -177,7 +177,7 @@
         "v2.7.6".hash = "sha256-AxkRx+YxMpb8/IFrGBQrYiFZHkRvokD3OimY1CzBx3c=";
         "v2.7.10.2".hash = null;
         "v2.7.11".hash = null;
-        "v2.8.1".hash = null;
+        "v2.8.1".hash = "sha256-WbURUuXMvOZ61zal9977TpT2QmJDTUrkZdpj76Awd7o=";
       };
       # TODO? some POIs may need mapid assigned, only mentioned in xml comments...
     };
@@ -226,7 +226,7 @@
         "v21.9.2".hash = null;
         "v21.9.3".hash = null;
         "v21.9.4".hash = null;
-        "v23.9".hash = null;
+        "v23.9".hash = "sha256-NSVXztuC+V2zrDxRbeJNFtkk0iKd1QXXbW9bgDIQWik=";
       };
       output.sortPrio = 10;
     };
@@ -246,7 +246,7 @@
         "v5.2".hash = null;
         "v5.3".hash = null;
         "v5.3.1".hash = null;
-        "v5.6".hash = null;
+        "v5.6".hash = "sha256-1GlApiwLCMhYqRVw/ImSHRnwaoScyD4jek8F0Y+ZurI=";
       };
       output.sortPrio = 15;
     };
@@ -272,7 +272,7 @@
       };
       versions = {
         "v10.2.1".hash = "sha256-UtaHxBT5M7J8D4BxV/REfJhfKfv3A7j9ctd6vMWLGfE=";
-        "v11.0".hash = null;
+        "v11.0".hash = "sha256-+OHxkFKEtmcwf30VFXoSdiAPs7WMP2W0dncyh254paY=";
       };
       output.sortPrio = 10;
     };
@@ -319,7 +319,7 @@
       };
       versions = {
         "v1.2.0".hash = "sha256-LczoEqIdHLZ+O+pp5XSX6VGdv9PicyFP2v8RSugkdSk=";
-        "v2.0.1".hash = null;
+        "v2.0.1".hash = "sha256-KzgIhfIWNrSJPzrGyFz9BoNXadYb4SCwvzwSiJ2z5XI=";
       };
     };
     reactif-en = {
@@ -443,7 +443,7 @@
       };
       versions = {
         "Zippy1_8_0".hash = "sha256-Q2t3oCBE6/rRPx158//Ye5t62/i4XwuqEyVnBkktQsM=";
-        "Zippy2_0_0".hash = null;
+        "Zippy2_0_0".hash = "sha256-maPwDkljjERFimHj5TPffYLTAsYRsRTewKCwAJKeup4=";
       };
     };
     gw2taco = {
@@ -478,7 +478,7 @@
       output.sortPrio = 25;
       versions = {
         "V1.0".hash = null;
-        "V1.2".hash = null;
+        "V1.2".hash = "sha256-+JBibNL0x0By6W+sYAuKDF52jxcENYJALacQDG63SzQ=";
       };
     };
     shinys-trails = {
@@ -498,7 +498,7 @@
         "1.0.1".hash = null;
         "1.0.2".hash = null;
         "1.0.3".hash = null;
-        "1.0.6".hash = null;
+        "1.0.6".hash = "sha256-GkO2BA2Ne7bgJuGH79MSxckTcT+8qBsbECnEuu4FX2E=";
       };
     };
     linus-voe = {
@@ -517,7 +517,7 @@
       versions = {
         "1.0.0".hash = null;
         "1.1.0".hash = null;
-        "2.1.4".hash = null;
+        "2.1.4".hash = "sha256-szkd0ZNYpZ5buOs9NxD+cHZISicbFHaONrdBWlAigyw=";
       };
     };
   };

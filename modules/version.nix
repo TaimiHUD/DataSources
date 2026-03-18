@@ -11,6 +11,11 @@ in {
       type = types.str;
       default = name;
     };
+    versionId = mkOption {
+      type = types.str;
+      readOnly = true;
+      default = name;
+    };
     hash = mkOption {
       type = types.nullOr types.str;
       default = null;
@@ -21,7 +26,7 @@ in {
     };
     fetcher = {
       args = mkOption {
-        type = types.attrsOf (types.unspecified);
+        type = types.lazyAttrsOf (types.unspecified);
         default = {};
       };
     };
@@ -32,7 +37,7 @@ in {
   };
   config = {
     fetcher.args = mapAttrs (_: mkOptionDefault) {
-      inherit (config) versionName;
+      versionName = config.versionId;
       fileName = defaultTo datasourceConfig.fileName config.fileName;
       hash = defaultTo lib.fakeHash config.hash;
     };
@@ -47,8 +52,8 @@ in {
         callPackage = callPackageWith scope;
         fetcher = callPackage fetcherFor {};
         fetcherArgs' = functionArgs fetcher;
-        fetcherArgs = filterAttrs (name: _: fetcherArgs' ? ${name}) config.fetcher.args;
-      in args: if hasFetcher then fetcher (fetcherArgs // args) else throw "remote fetcher missing for ${config.versionName}";
+        fetcherArgs = filterAttrs (name: v: fetcherArgs' ? ${name} && v != null) config.fetcher.args;
+      in args: if hasFetcher then fetcher (fetcherArgs // args) else throw "remote fetcher missing for ${config.versionId}";
       urlFor = {}: args: let
         url = config.get.urlFetcherFor {} args;
       in url.url;
@@ -58,8 +63,8 @@ in {
         f = autoargs: args: let
           fetcher = fetcherFor autoargs;
           fetcherArgs' = functionArgs fetcher;
-          fetcherArgs = filterAttrs (name: _: fetcherArgs' ? ${name}) config.fetcher.args;
-        in if hasFetcher then fetcher (fetcherArgs // args) else throw "remote fetcher missing for ${config.versionName}";
+          fetcherArgs = filterAttrs (name: v: fetcherArgs' ? ${name} && v != null) config.fetcher.args;
+        in if hasFetcher then fetcher (fetcherArgs // args) else throw "remote fetcher missing for ${config.versionId}";
         fargs = if hasFetcher then functionArgs config.get.fetcherFor else {};
       in setFunctionArgs f fargs;
     };

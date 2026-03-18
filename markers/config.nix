@@ -13,7 +13,7 @@
         url = "https://bhm.blishhud.com/Manlaan.CommanderMarkers/Community/Markers.json";
         # TODO: https://github.com/manlaan/BlishHud-CommanderMarkers/raw/refs/heads/bhud-static/Manlaan.CommanderMarkers/Community/Markers.json
       };
-      versions."latest".hash = null;
+      versions."latest".hash = "sha256-4SAYxH+8lUXypmU8ujy0HEmjjS4oSqcjrEGyTAWMw4c=";
     };
     blishhud-cm = {
       name = "BlishHUD Commander's Markers Internal Markers";
@@ -27,7 +27,8 @@
       remote.github = {
         owner = "TaimiHUD";
         repo = "CommandersMarkersInternalMarkers";
-        archive.enable = true;
+        #archive.enable = true;
+        releases.enable = true;
       };
       versions."v0.0.1".hash = "sha256-7ZGXXa4tJZfFtQvcGMsX6fuBLZgu0bAkOK+TihnpFwM=";
     };

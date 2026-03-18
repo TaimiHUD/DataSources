@@ -11,22 +11,21 @@
     inherit (cfg.get) fetcherFor srcFetcherFor updateCheckFor;
     updateCheck = let
       f = args: config.get.updateCheckFor args {
-        ${if config.fetcher.args ? versionName then "versionName" else null} = config.fetcher.args.versionName;
-        ${if config.fetcher.args ? ref then "ref" else null} = config.fetcher.args.ref;
+        ${if config.fetcher.args.versionName or null != null then "versionName" else null} = config.fetcher.args.versionName;
+        ${if config.fetcher.args.ref != null then "ref" else null} = config.fetcher.args.ref;
       };
     in setFunctionArgs f (functionArgs cfg.get.updateCheckFor);
   };
+  hasRef = cfg.releases.enable || cfg.archive.enable;
 in {
   config = {
-    fetcher.args = let
-      hasRef = cfg.releases.enable || cfg.archive.enable;
-    in mkIf cfg.enable {
-      versionName = mkIf (hasRef && (hasPrefix "v" config.versionName || hasPrefix "V" config.versionName || builtins.match "[0-9.]*" config.versionName != null)) (mkAlmostOptionDefault (
-        removePrefix "V" (
-          removePrefix "v" config.versionName
-        )
-      ));
-      ref = mkIf hasRef (mkOptionDefault "refs/tags/${config.versionName}");
+    versionName = mkIf (cfg.enable && hasRef && (hasPrefix "v" config.versionId || hasPrefix "V" config.versionId || builtins.match "[0-9.]*" config.versionId != null)) (mkAlmostOptionDefault (
+      removePrefix "V" (
+        removePrefix "v" config.versionId
+      )
+    ));
+    fetcher.args = mkIf cfg.enable {
+      ref = mkIf hasRef (mkOptionDefault "refs/tags/${config.fetcher.args.versionName}");
     };
     get = mkIf cfg.enable get;
   };
