@@ -3,7 +3,7 @@
   inherit (lib.customisation) callPackageWith;
   inherit (lib.modules) mkOptionDefault;
   inherit (lib.options) mkOption;
-  inherit (lib.trivial) defaultTo functionArgs id;
+  inherit (lib.trivial) defaultTo setFunctionArgs functionArgs id;
   inherit (lib) types;
 in {
   options = {
@@ -52,6 +52,16 @@ in {
       urlFor = {}: args: let
         url = config.get.urlFetcherFor {} args;
       in url.url;
+      fetcher = let
+        fetcherFor = config.get.fetcherFor or null;
+        hasFetcher = fetcherFor != null;
+        f = autoargs: args: let
+          fetcher = fetcherFor autoargs;
+          fetcherArgs' = functionArgs fetcher;
+          fetcherArgs = filterAttrs (name: _: fetcherArgs' ? ${name}) config.fetcher.args;
+        in if hasFetcher then fetcher (fetcherArgs // args) else throw "remote fetcher missing for ${config.versionName}";
+        fargs = if hasFetcher then functionArgs config.get.fetcherFor else {};
+      in setFunctionArgs f fargs;
     };
   };
 }

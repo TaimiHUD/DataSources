@@ -37,6 +37,19 @@
           datasources = self;
           inherit (packages) packs sources;
         };
+        datasourceSrcs = let
+          inherit (nixlib) filterAttrs mapAttrs;
+          inherit (self.lib.datasources.config) datasources;
+          mkDatasources = _: datasources: let
+            availDatasources = filterAttrs (_: ds: /*ds.enable or*/ true) datasources;
+            mkVersionSrc = _: v: callPackage v.get.fetcher {} {};
+            mkSrc = _: ds: let
+              forVersion = mapAttrs mkVersionSrc ds.versions;
+            in forVersion."${toString ds.latest.version}" or {} // {
+              inherit forVersion;
+            };
+          in mapAttrs mkSrc availDatasources;
+        in mapAttrs mkDatasources datasources;
         updateChecks = let
           inherit (nixlib) mapAttrsToList attrValues concatLists filter;
           inherit (self.lib.datasources.config) datasources;
