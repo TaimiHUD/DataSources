@@ -108,6 +108,8 @@ jobs:
       with:
         files: .ci/artifacts/share/taimihud/sources.toml
   updates:
+    env:
+      CI_GITHUB_TOKEN: ${{ github.token }}
     if: github.event_name != 'push'
     name: taimihud-datasources-updates
     runs-on: ubuntu-latest

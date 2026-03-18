@@ -34,6 +34,7 @@ in
         };
       };
       updates = {
+        gh-actions.env.CI_GITHUB_TOKEN = "\${{ github.token }}";
         tasks = {
           build.inputs = legacyPackages.updateChecks ++ [
             legacyPackages.allIncompleteSrcs
