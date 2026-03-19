@@ -74,7 +74,7 @@
     };
     apo-boss = {
       name = "Apo's Boss Markers";
-      fileName = "apo_markers.zip";
+      fileName = "apo_markers.taco";
       description = "Markers for Kela";
       output.settings.author = "Apocalypse.5289";
       remote.github = {
@@ -203,7 +203,7 @@
         sourceFile.path = "HeroineDark SAB Guides.taco"; # the zip is committed directly to repo
         releases.enable = true; # but there's also a release so...
       };
-      versions."v3.1.12.69".hash = "sha256-QalAd/Ct94DgeWaJHlHYqwB7GOjz+JFiCNpIDGXiKws=";
+      versions."v3.1.12.69".hash = "sha256-3LCpwEsYN9LyByrenjHfsMM6CH8y4CbXq4gmdSNdHlk=";
     };
     japyx-trails = {
       name = "Japyx's Trails";
