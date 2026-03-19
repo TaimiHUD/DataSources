@@ -84,6 +84,21 @@
       };
       versions."v.1.0.5".hash = "sha256-Nrl7gq3l2hGbVSQDoz6MPpsAuFqVI6v7lyTHejab4a4=";
     };
+    aurizara-hp = {
+      name = "Aurizara's HP Train Guides";
+      fileName = "Aurizara_HP.taco";
+      output.settings = {
+        author = "Aurizara";
+        display_name = "HP Train Guides";
+        sortPrio = 20;
+      };
+      remote.github = {
+        owner = "aurizara";
+        repo = "Aurizara-s-HP-Train-Guides";
+        releases.enable = true;
+      };
+      versions."v2025.11.07".hash = "sha256-7murgpf47J8d8AYXEYLDl8hd11gS5VTY3ia7gsl9adI=";
+    };
     convergence-corp = { config, ... }: let
       url = "https://convergencecorp.net/";
     in {
