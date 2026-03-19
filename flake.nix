@@ -171,6 +171,9 @@
           inherit inputs;
         };
       };
+      info = {
+        datasourceKeys = nixlib.mapAttrs (_: nixlib.attrNames) self.lib.datasources.config.datasources;
+      };
     };
   };
 }
