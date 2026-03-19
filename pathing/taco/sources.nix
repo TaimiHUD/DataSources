@@ -400,15 +400,22 @@
         url = "https://www.tekkitsworkshop.net/downloads/tw_ALL_IN_ONE.taco";
       };
       versions = {
-        "2025-11-02" = {
+        "3.8.1" = {
+          #date = "08 January 2026";
+          #etag = "2dc3641-64a54d37e1a01";
+          #lastModified = "Sun, 08 Feb 2026 19:14:06 GMT";
+          #md5 = "c514e7d4f6c542c59336dde29d25cca8"?
+          hash = "sha256-cTCsjpy4sGi14PpsmypuZHkOxiuXQaiTGadnOX1T0Ao=";
+        };
+        "3.7.6" = {
           #lastModified = "Sun, 02 Nov 2025 19:11:38 GMT";
           #etag = "2d603ac-642a15e365b9a";
           hash = "sha256-LXeFB2BqxuymUnrA33EZSEQYsdbY5B99hZIjZfJRazQ=";
         };
-        "2025-08-27" = {
+        "3.7.5" = {
           #etag = "2ca49a5-63d529817d7e3";
           #lastModified = "Wed, 27 Aug 2025 06:06:48 GMT";
-          #version = "7e11b1dbef7f616cba3957b766a16578"?
+          #md5 = "7e11b1dbef7f616cba3957b766a16578"?
           hash = "sha256-bHpKeBBIr8F4BNO2sAaaCloQ5I5N7CFNZ0o059Iba2M=";
         };
       };
