@@ -25,6 +25,9 @@
         releases.enable = true;
       };
       versions."v1.0.1".hash = "sha256-SG2MeYw27Rpcnwecr0tbzqmEPfmIucQhWgucvw+aCf8=";
+      # deprecated means it will be hidden if uninstalled, so
+      # allowing the warning to show if it was previously installed from an older version
+      stock.enable = true;
       output = {
         settings = {
           # this could mean something to someone someday
