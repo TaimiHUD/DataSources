@@ -82,7 +82,11 @@
         repo = "apo-markers";
         releases.enable = true;
       };
-      versions."v.1.0.5".hash = "sha256-Nrl7gq3l2hGbVSQDoz6MPpsAuFqVI6v7lyTHejab4a4=";
+      versions = {
+        "v1.0.4".hash = "sha256-sVuPmRMt2dsYtrwd+ZGVDBLYd1W08w/rOvNdNXL4PcI=";
+        "v.1.0.5".hash = "sha256-Nrl7gq3l2hGbVSQDoz6MPpsAuFqVI6v7lyTHejab4a4=";
+        "v1.0.6".hash = "sha256-k8TWIratJazIn6HO8bp+F5LHDsqpWmGiXSmsDCEY4Dw=";
+      };
     };
     aurizara-hp = {
       name = "Aurizara's HP Train Guides";
@@ -273,6 +277,7 @@
         "v21.9.3".hash = null;
         "v21.9.4".hash = null;
         "v23.9".hash = "sha256-NSVXztuC+V2zrDxRbeJNFtkk0iKd1QXXbW9bgDIQWik=";
+        "v24.6".hash = "sha256-yLe4G0AX4kzdebCwlGvfV+8y4nMpZNBBOsoxCltlbBg=";
       };
       output.sortPrio = 10;
     };
@@ -293,6 +298,7 @@
         "v5.3".hash = null;
         "v5.3.1".hash = null;
         "v5.6".hash = "sha256-1GlApiwLCMhYqRVw/ImSHRnwaoScyD4jek8F0Y+ZurI=";
+        "v6.0".hash = "sha256-8oMrC0Gvaglpjt5XFXmUIdewaS8aZhCWu567Ugc0w38=";
       };
       output.sortPrio = 15;
     };
@@ -353,6 +359,21 @@
         releases.enable = true;
       };
       versions."v1.13".hash = "sha256-Vhb+B3h46Yd+ZR/Hx1fT2sSBlaq3vNtKp/18hePiTk8=";
+    };
+    peak-infallible = {
+      name = "PEAK Infallible Markers";
+      description = "Skips, stack spots, jumping puzzles, and more to help with the Infallible achievement";
+      fileName = "PEAK.zip";
+      output.settings = {
+        author = "Aersia";
+        #author = "Aersia.4709";
+      };
+      remote.github = {
+        owner = "AersiaNightingale";
+        repo = "PEAK-Infallible-Markers";
+        releases.enable = true;
+      };
+      versions."v1.7".hash = "sha256-uSGcDjeLfg58UEOP/6ToPlWHNH7FzGpv/y3lkSocbUc=";
     };
     pewpews = {
       name = "Pewpew's Power Paths";
