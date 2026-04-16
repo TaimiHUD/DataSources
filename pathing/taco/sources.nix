@@ -155,6 +155,25 @@
       };
       versions."v1.0.6".hash = "sha256-tO2ONztLeFIbThkXyr1z1vKwhKioSJdVFaDp3gIB+VY=";
     };
+    fast-farming = {
+      name = "fast TacO";
+      fileName = "fast_TacO_pack.taco";
+      url = "https://fast.farming-community.eu/farming/guides/fast-taco-marker";
+      output.settings = {
+        author = "[fast]";
+        display_name = "[fast] TacO Markers";
+      };
+      remote.direct = {
+        url = "https://fast.farming-community.eu/assets/downloads/fast_TacO_pack.taco";
+      };
+      versions = {
+        "1.1" = {
+          hash = "sha256-BvzHDaEjoQl5NmWPZ6I5RjwgzkWBJIgv+hciDGLTrTI=";
+          #lastModified = "Tue, 14 Apr 2026 18:37:23 GMT"
+          #etag = "\"a1bf1-64f6fe3dadec0\"";
+        };
+      };
+    };
     floochs-friendly = {
       name = "Flooch's Friendly Collection Routes";
       fileName = "ffcr.taco";
