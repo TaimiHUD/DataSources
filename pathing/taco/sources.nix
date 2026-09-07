@@ -452,9 +452,14 @@
       stock.enable = true;
       remote.direct = {
         #url = "https://www.tekkitsworkshop.net/download?download=1:tw-all-in-one";
-        url = "https://www.tekkitsworkshop.net/downloads/tw_ALL_IN_ONE.taco";
+        url = "https://www.tekkitsworkshop.net/download?download=1:tw-all-in-one";
       };
       versions = {
+        "3.8.6" = {
+          #date = "16 May 2026";
+          #md5 = "ff4487661556dad18ff6210c2dc12510"?
+          hash = "sha256-GnIL50HdXVsqOXxOaYaFpPpIVTbMrclxbSQyiqyb3KY=";
+        };
         "3.8.1" = {
           #date = "08 January 2026";
           #etag = "2dc3641-64a54d37e1a01";
